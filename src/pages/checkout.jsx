@@ -220,6 +220,9 @@ const Checkout = () => {
   const { step, shippingAddress } = useContext(CheckoutStateContext);
   const checkoutDispatch = useContext(CheckoutDispatchContext);
   const totalItems = items.length;
+  const cartTotal = items
+    .map((item) => item.price * item.quantity)
+    .reduce((prev, current) => prev + current, 0);
 
   const handleClickTimeline = (nextStep) => {
     setCheckoutStep(checkoutDispatch, nextStep);
@@ -285,7 +288,7 @@ const Checkout = () => {
                         product.quantity > 1 ? "Nos." : "No."
                       }`}
                     </p>
-                    <p className="amount">{product.quantity * product.price}</p>
+                    <p className="amount">{(product.quantity * product.price).toFixed(2)}</p>
                   </div>
                 </li>
               );
@@ -295,19 +298,19 @@ const Checkout = () => {
           <ul className="total-breakup">
             <li>
               <p>Subtotal</p>
-              <p>5000</p>
+              <p>{cartTotal.toFixed(2)}</p>
             </li>
             <li>
               <p>Tax</p>
-              <p>5000</p>
+              <p></p>
             </li>
             <li>
               <p>Shipping</p>
-              <p>5000</p>
+              <p></p>
             </li>
             <li>
               <h2>Total</h2>
-              <h2>5000</h2>
+              <h2></h2>
             </li>
           </ul>
         </div>

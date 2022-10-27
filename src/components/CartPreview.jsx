@@ -39,7 +39,7 @@ const CartPreview = () => {
                     product.quantity > 1 ? "Nos." : "No."
                   }`}
                 </p>
-                <p className="amount">{product.quantity * product.price}</p>
+                <p className="amount">{(product.quantity * product.price).toFixed(2)}</p>
               </div>
               <button
                 className="product-remove"

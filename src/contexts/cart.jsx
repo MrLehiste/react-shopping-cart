@@ -19,6 +19,7 @@ const reducer = (state, action) => {
     case "ADD_TO_CART":
       const id = action.payload.cartItem.id;
       const isOld = state.items.map((item) => item.id).includes(id);
+      //console.log("ADD_TO_CART state", state.items);
       let cartItems = null;
       if (isOld) {
         const items = state.items.map((item) => {

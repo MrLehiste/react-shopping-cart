@@ -91,7 +91,7 @@ const Header = (props) => {
                   <td>Sub Total</td>
                   <td>:</td>
                   <td>
-                    <strong>{cartTotal}</strong>
+                    <strong>{cartTotal.toFixed(2)}</strong>
                   </td>
                 </tr>
               </tbody>
